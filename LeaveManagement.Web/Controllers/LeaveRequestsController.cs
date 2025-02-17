@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using LeaveManagement.Utils;
 using Newtonsoft.Json;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace LeaveManagement.Web.Controllers
 {
@@ -21,6 +22,9 @@ namespace LeaveManagement.Web.Controllers
             _context = context;
             _httpClient = httpClientFactory.CreateClient();
             _httpClient.BaseAddress = new Uri("https://localhost:7265/api/"); // Adjust the base address as needed
+            _httpClient.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
         }
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
@@ -65,6 +69,7 @@ namespace LeaveManagement.Web.Controllers
             {
                 var jsonContent = new StringContent(JsonConvert.SerializeObject(leaveRequest), Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync("LeaveRequests", jsonContent);
+
                 if (response.IsSuccessStatusCode)
                 {
                     TempData["Success"] = "Added!";
@@ -72,10 +77,7 @@ namespace LeaveManagement.Web.Controllers
                 }
                 else
                 {
-                    _context.LeaveRequest.Add(leaveRequest);
-                    await _context.SaveChangesAsync();
-                    TempData["Success"] = "Added!";
-
+                    TempData["Error"] = "Failed!";
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -125,19 +127,18 @@ namespace LeaveManagement.Web.Controllers
             try
             {
                 var jsonContent = new StringContent(JsonConvert.SerializeObject(leaveRequest), Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync("LeaveRequests", jsonContent);
+                var response = await _httpClient.PutAsync($"LeaveRequests/{id}", jsonContent);
                 if (response.IsSuccessStatusCode)
                 {
+                    TempData["Success"] = "Updated!";
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
-                    _context.LeaveRequest.Update(leaveRequest);
-                    await _context.SaveChangesAsync();
-                    TempData["Success"] = "Edited!";
-                   
+                    TempData["Error"] = "Failed!";
+                    return RedirectToAction(nameof(Index));
+
                 }
-                return RedirectToAction(nameof(Index));
 
             }
             catch
@@ -178,13 +179,10 @@ namespace LeaveManagement.Web.Controllers
             }
             else
             {
-                var leaveRequest = await _context.LeaveRequest.FindAsync(id);
-                _context.LeaveRequest.Remove(leaveRequest);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Removed!";
-            }
+                TempData["Error"] = "Failed!";
+                return RedirectToAction(nameof(Index));
 
-            return RedirectToAction(nameof(Index));
+            }
         }
 
         private bool LeaveRequestExists(int id)

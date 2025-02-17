@@ -16,14 +16,14 @@ namespace LeaveManagement.Models
         [Required]
         public DateTime EndDate { get; set; }
         [Required]
-        public string LeaveType { get; set; } 
+        public string? LeaveType { get; set; } 
         [Required]
         public string Status { get; set; } = LeaveStatus.Pending.ToString();
-        public string Reason { get; set; }
+        public string? Reason { get; set; }
         public DateTime AppliedDate { get; set; } = DateTime.Now;
 
         [ForeignKey(nameof(EmployeeId))]
-        public Employee Employee { get; set; }
+        public Employee? Employee { get; set; }
     }
 
     public enum LeaveStatus
