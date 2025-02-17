@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using LeaveManagement.Infrustructure.Data;
 using LeaveManagement.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -73,9 +72,10 @@ namespace LeaveManagement.Web.Controllers
                 }
                 else
                 {
-                    TempData["Success"] = "Added!";
                     _context.LeaveRequest.Add(leaveRequest);
                     await _context.SaveChangesAsync();
+                    TempData["Success"] = "Added!";
+
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -135,20 +135,14 @@ namespace LeaveManagement.Web.Controllers
                     _context.LeaveRequest.Update(leaveRequest);
                     await _context.SaveChangesAsync();
                     TempData["Success"] = "Edited!";
-                    return RedirectToAction(nameof(Index));
+                   
                 }
+                return RedirectToAction(nameof(Index));
 
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
-                if (!LeaveRequestExists(leaveRequest.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+
             }
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
             ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text", leaveRequest.LeaveType);
@@ -187,6 +181,7 @@ namespace LeaveManagement.Web.Controllers
                 var leaveRequest = await _context.LeaveRequest.FindAsync(id);
                 _context.LeaveRequest.Remove(leaveRequest);
                 await _context.SaveChangesAsync();
+                TempData["Success"] = "Removed!";
             }
 
             return RedirectToAction(nameof(Index));
