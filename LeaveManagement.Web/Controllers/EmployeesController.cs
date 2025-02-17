@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LeaveManagement.Models;
-using LeaveManagement.Web.Data;
 using LeaveManagement.Infrustructure.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LeaveManagement.Web.Controllers
 {
+    [Authorize]
     public class EmployeesController(ApplicationDbContext context) : Controller
     {
         private readonly ApplicationDbContext _context = context;

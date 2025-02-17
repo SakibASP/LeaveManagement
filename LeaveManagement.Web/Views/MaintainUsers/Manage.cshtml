@@ -1,0 +1,61 @@
+﻿@model List<LeaveManagement.ViewModels.ManageUserRolesViewModel>
+@{
+    ViewData["Title"] = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="header-icon">
+        <i class="fa fa-users"></i>
+    </div>
+    <div class="header-title">
+        <h1 id="changing-heading">User Roles</h1>
+        <small>Roles list</small>
+    </div>
+</section>
+<!-- Main content -->
+<div class="content">
+    <div class="row">
+        <!-- Form controls -->
+        <div class="col-sm-12">
+            <div class="card lobicard all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                <div class="card-header all_card_btn">
+                    <div class="card-title custom_title">
+                        <a class="btn btn-add" asp-action="Index"><i class="fa fa-list"></i> Users List </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Manage User Roles</h2>
+                                Manage Roles for User / @ViewBag.UserName.
+                            </div>
+                            <div class="card-body">
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    <div class="form-check m-1">
+                                        <input type="hidden" asp-for="@Model[i].RoleId" />
+                                        <input type="hidden" asp-for="@Model[i].RoleName" />
+                                        <input asp-for="@Model[i].Selected" class="form-check-input" />
+                                        <label class="form-check-label" asp-for="@Model[i].Selected">
+                                            @Model[i].RoleName
+                                        </label>
+                                    </div>
+                                }
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                            </div>
+                            <div class="card-footer">
+                                <input type="submit" value="Update" class="btn btn-primary btn-sm"
+                                       style="width:auto" />
+                                <a asp-action="Index" asp-route-id="@ViewBag.userId" class="btn btn-danger btn-sm" style="width:auto">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->

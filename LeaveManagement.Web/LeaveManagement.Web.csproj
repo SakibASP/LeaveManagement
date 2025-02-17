@@ -20,6 +20,8 @@
   <ItemGroup>
     <ProjectReference Include="..\LeaveManagement.Infrustructure\LeaveManagement.Infrustructure.csproj" />
     <ProjectReference Include="..\LeaveManagement.Models\LeaveManagement.Models.csproj" />
+    <ProjectReference Include="..\LeaveManagement.Utils\LeaveManagement.Utils.csproj" />
+    <ProjectReference Include="..\LeaveManagement.ViewModels\LeaveManagement.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

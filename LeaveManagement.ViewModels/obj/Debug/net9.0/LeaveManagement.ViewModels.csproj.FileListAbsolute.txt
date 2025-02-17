@@ -1,0 +1,12 @@
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\bin\Debug\net9.0\LeaveManagement.ViewModels.deps.json
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\bin\Debug\net9.0\LeaveManagement.ViewModels.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\bin\Debug\net9.0\LeaveManagement.ViewModels.pdb
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.AssemblyInfoInputs.cache
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.AssemblyInfo.cs
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.csproj.CoreCompileInputs.cache
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.sourcelink.json
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\refint\LeaveManagement.ViewModels.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.pdb
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\ref\LeaveManagement.ViewModels.dll

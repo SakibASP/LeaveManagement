@@ -29,3 +29,23 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+
+
+.flex-button {
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+#myAnchor {
+    text-decoration: none;
+    __color: #9a1f1f;
+}
+
+#myRenderBody {
+    font-size: 0.97rem;
+    font-family: Arial, Helvetica, sans-serif;
+}

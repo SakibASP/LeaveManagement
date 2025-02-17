@@ -1,0 +1,89 @@
+﻿
+@model IList<LeaveManagement.ViewModels.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="header-icon">
+        <i class="fa fa-users"></i>
+    </div>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card lobicard" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <h4>Users</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group d-flex" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-info" href="/Identity/Account/Register">
+                                <i class="fa fa-plus"></i> Add User
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <form asp-action="Index" method="get" style="padding-bottom: 10px;">
+                       <div class="row">
+                            <div class="col-md-8">
+                                @Html.TextBox("SearchString", null, null, new { @placeholder = " Search by Username or Email", @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <div style="display: flex; flex-direction: row">
+                                    @Html.DropDownList("CurrentFilter", (SelectList)ViewBag.CurrentFilter, "Please select...", new { @onchange = "this.form.submit()", @class = "form-control" })
+                                    <input type="submit" value="Search" class="btn btn-outline-dark btn-sm" />
+                                </div>
+                            </div>
+                       </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                            <thead class="back_table_color">
+                                <tr class="info">
+                                    <th>Email</th>
+                                    <th>Roles</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in Model)
+                                {
+                                    <tr>
+                                        <td>@user.Email</td>
+                                        <td>@string.Join(" , ", user.Roles.ToList())</td>
+                                        <td>
+                                            <a class="btn btn-primary btn-sm" asp-controller="MaintainUsers" asp-action="Manage" asp-route-userId="@user.UserId">Roles</a>
+                                            <a href="javascript:void(0)"
+                                               onclick="handleDelete(this, '@Url.Action("DeleteUser", "MaintainUsers", new { userId = user.UserId })')"
+                                               class="btn btn-danger btn-sm">
+                                                Delete User
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        function handleDelete(element, deleteUrl) {
+            if (confirm('Confirm delete?')) {
+                window.location.href = deleteUrl; // Redirect to the delete action
+            }
+        }
+    </script>
+}

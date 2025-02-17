@@ -1,0 +1,46 @@
+﻿
+@model LeaveManagement.ViewModels.RolesViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="header-icon">
+        <i class="fa fa-users"></i>
+    </div>
+    <div class="header-title">
+        <h1 id="changing-heading">Edit Role</h1>
+        <small>Role list</small>
+    </div>
+</section>
+<!-- Main content -->
+<div class="content">
+    <div class="row">
+        <!-- Form controls -->
+        <div class="col-sm-12">
+            <div class="card lobicard all_btn_card" id="lobicard-custom-control1" data-sortable="true">
+                <div class="card-header all_card_btn">
+                    <div class="card-title custom_title">
+                        <a class="btn btn-add" asp-action="Index"><i class="fa fa-list"></i> Role List </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditRole" asp-controller="RoleManager" class="col-sm-6">
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Id" />
+                            <label asp-for="roleName" class="control-label"></label>
+                            <input asp-for="roleName" class="form-control" />
+                            <span asp-validation-for="roleName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->

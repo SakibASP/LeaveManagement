@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LeaveManagement.Infrustructure.Data;
 using LeaveManagement.Models;
+using Microsoft.AspNetCore.Authorization;
+using LeaveManagement.Utils;
 
 namespace LeaveManagement.Web.Controllers
 {
+    [Authorize]
     public class LeaveRequestsController(ApplicationDbContext context) : Controller
     {
         private readonly ApplicationDbContext _context = context;
@@ -40,6 +43,8 @@ namespace LeaveManagement.Web.Controllers
         public IActionResult Create()
         {
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name");
+            ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text");
+            ViewData["Status"] = new SelectList(StaticDropDowns.GetLeaveStatus(), "Value", "Text");
             return View();
         }
 
@@ -50,13 +55,16 @@ namespace LeaveManagement.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,EmployeeId,StartDate,EndDate,LeaveType,Status,Reason,AppliedDate")] LeaveRequest leaveRequest)
         {
-            if (ModelState.IsValid)
+            try
             {
                 _context.Add(leaveRequest);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            catch { }
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
+            ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text", leaveRequest.LeaveType);
+            ViewData["Status"] = new SelectList(StaticDropDowns.GetLeaveStatus(), "Value", "Text", leaveRequest.Status);
             return View(leaveRequest);
         }
 
@@ -74,6 +82,8 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
+            ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text", leaveRequest.LeaveType);
+            ViewData["Status"] = new SelectList(StaticDropDowns.GetLeaveStatus(), "Value", "Text", leaveRequest.Status);
             return View(leaveRequest);
         }
 
@@ -110,6 +120,8 @@ namespace LeaveManagement.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
+            ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text", leaveRequest.LeaveType);
+            ViewData["Status"] = new SelectList(StaticDropDowns.GetLeaveStatus(), "Value", "Text", leaveRequest.Status);
             return View(leaveRequest);
         }
 

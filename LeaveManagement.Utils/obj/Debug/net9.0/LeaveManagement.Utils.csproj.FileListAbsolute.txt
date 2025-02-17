@@ -1,0 +1,16 @@
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\bin\Debug\net9.0\LeaveManagement.Utils.deps.json
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\bin\Debug\net9.0\LeaveManagement.Utils.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\bin\Debug\net9.0\LeaveManagement.Utils.pdb
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\bin\Debug\net9.0\LeaveManagement.Models.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\bin\Debug\net9.0\LeaveManagement.Models.pdb
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.csproj.AssemblyReference.cache
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.AssemblyInfoInputs.cache
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.AssemblyInfo.cs
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.csproj.CoreCompileInputs.cache
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.sourcelink.json
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveMan.E739C3C2.Up2Date
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\refint\LeaveManagement.Utils.dll
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\LeaveManagement.Utils.pdb
+D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.Utils\obj\Debug\net9.0\ref\LeaveManagement.Utils.dll

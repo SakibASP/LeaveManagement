@@ -3544,11 +3544,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Assessment\\LeaveManagement.Infrustructure\\LeaveManagement.Infrustructure.csproj",
+      "projectUniqueName": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Infrustructure\\LeaveManagement.Infrustructure.csproj",
       "projectName": "LeaveManagement.Infrustructure",
-      "projectPath": "D:\\Assessment\\LeaveManagement.Infrustructure\\LeaveManagement.Infrustructure.csproj",
+      "projectPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Infrustructure\\LeaveManagement.Infrustructure.csproj",
       "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-      "outputPath": "D:\\Assessment\\LeaveManagement.Infrustructure\\obj\\",
+      "outputPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Infrustructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3570,8 +3570,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Assessment\\LeaveManagement.Models\\LeaveManagement.Models.csproj": {
-              "projectPath": "D:\\Assessment\\LeaveManagement.Models\\LeaveManagement.Models.csproj"
+            "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj": {
+              "projectPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj"
             }
           }
         }
