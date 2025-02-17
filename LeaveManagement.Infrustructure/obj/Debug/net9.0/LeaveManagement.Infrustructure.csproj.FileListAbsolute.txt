@@ -1,0 +1,15 @@
+D:\Assessment\LeaveManagement.Infrustructure\bin\Debug\net9.0\LeaveManagement.Infrustructure.deps.json
+D:\Assessment\LeaveManagement.Infrustructure\bin\Debug\net9.0\LeaveManagement.Infrustructure.dll
+D:\Assessment\LeaveManagement.Infrustructure\bin\Debug\net9.0\LeaveManagement.Infrustructure.pdb
+D:\Assessment\LeaveManagement.Infrustructure\bin\Debug\net9.0\LeaveManagement.Models.dll
+D:\Assessment\LeaveManagement.Infrustructure\bin\Debug\net9.0\LeaveManagement.Models.pdb
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.csproj.AssemblyReference.cache
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.AssemblyInfoInputs.cache
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.AssemblyInfo.cs
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.csproj.CoreCompileInputs.cache
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveMan.EB21477C.Up2Date
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.dll
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\refint\LeaveManagement.Infrustructure.dll
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\LeaveManagement.Infrustructure.pdb
+D:\Assessment\LeaveManagement.Infrustructure\obj\Debug\net9.0\ref\LeaveManagement.Infrustructure.dll

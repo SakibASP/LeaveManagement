@@ -1,0 +1,6 @@
+
+
+CREATE DATABASE LeaveManagement;
+
+ALTER DATABASE LeaveManagement SET RECOVERY SIMPLE;
+
