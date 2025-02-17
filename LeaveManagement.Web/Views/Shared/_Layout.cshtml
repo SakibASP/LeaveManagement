@@ -27,7 +27,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LeaveRequests" asp-action="Index">LeaveRequests</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="LeaveRequests" asp-action="Create">LeaveRequests</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MaintainUsers" asp-action="Index">Users</a>
@@ -45,6 +45,18 @@
         </nav>
     </header>
     <div class="container">
+        @if (@TempData["Error"] != null)
+        {
+            <div class="text-left" style="background-color: darkred">
+                <span class="message" style="font-size:medium; color:white;"><strong style="font:bold;"> 😢 Error:</strong> @TempData["Error"]</span>
+            </div>
+        }
+        @if (@TempData["Success"] != null)
+        {
+            <div class="text-left" style="background-color: darkgreen">
+                <span class="message" style="font-size:medium; color:white;"><strong style="font:bold;"> 😊 Success:</strong> @TempData["Success"]</span>
+            </div>
+        }
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

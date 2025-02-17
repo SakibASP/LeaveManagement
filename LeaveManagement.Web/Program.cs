@@ -25,6 +25,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddDefaultUI()
             .AddDefaultTokenProviders();
 
+builder.Services.AddHttpClient();
+
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    options.UseSqlServer(connectionString));
 //builder.Services.AddDatabaseDeveloperPageExceptionFilter();

@@ -8,9 +8,11 @@
 
 <h1>Index</h1>
 
+@if(manger){
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -64,8 +66,8 @@
             </td>
             <td>
                 @if(manger){
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 }
             </td>
         </tr>

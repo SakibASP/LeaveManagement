@@ -5,19 +5,31 @@ using LeaveManagement.Infrustructure.Data;
 using LeaveManagement.Models;
 using Microsoft.AspNetCore.Authorization;
 using LeaveManagement.Utils;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace LeaveManagement.Web.Controllers
 {
     [Authorize]
-    public class LeaveRequestsController(ApplicationDbContext context) : Controller
+    public class LeaveRequestsController : Controller
     {
-        private readonly ApplicationDbContext _context = context;
+        private readonly ApplicationDbContext _context;
 
+        private readonly HttpClient _httpClient;
+
+        public LeaveRequestsController(ApplicationDbContext context, IHttpClientFactory httpClientFactory)
+        {
+            _context = context;
+            _httpClient = httpClientFactory.CreateClient();
+            _httpClient.BaseAddress = new Uri("https://localhost:7265/api/"); // Adjust the base address as needed
+        }
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.LeaveRequest.Include(l => l.Employee);
-            return View(await applicationDbContext.ToListAsync());
+            var response = await _httpClient.GetAsync("LeaveRequests");
+            var responseString = await response.Content.ReadAsStringAsync();
+            var model = JsonConvert.DeserializeObject<IList<LeaveRequest>>(responseString);
+            return View(model);
         }
 
         // GET: LeaveRequests/Details/5
@@ -28,14 +40,9 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
 
-            var leaveRequest = await _context.LeaveRequest
-                .Include(l => l.Employee)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (leaveRequest == null)
-            {
-                return NotFound();
-            }
-
+            var response = await _httpClient.GetAsync($"LeaveRequests/{id}");
+            var responseString = await response.Content.ReadAsStringAsync();
+            var leaveRequest = JsonConvert.DeserializeObject<LeaveRequest>(responseString);
             return View(leaveRequest);
         }
 
@@ -57,9 +64,21 @@ namespace LeaveManagement.Web.Controllers
         {
             try
             {
-                _context.Add(leaveRequest);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var jsonContent = new StringContent(JsonConvert.SerializeObject(leaveRequest), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("LeaveRequests", jsonContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "Added!";
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    TempData["Success"] = "Added!";
+                    _context.LeaveRequest.Add(leaveRequest);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+
             }
             catch { }
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
@@ -76,11 +95,15 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
 
-            var leaveRequest = await _context.LeaveRequest.FindAsync(id);
+            var response = await _httpClient.GetAsync($"LeaveRequests/{id}");
+            var responseString = await response.Content.ReadAsStringAsync();
+            var leaveRequest = JsonConvert.DeserializeObject<LeaveRequest>(responseString);
+
             if (leaveRequest == null)
             {
                 return NotFound();
             }
+
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
             ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text", leaveRequest.LeaveType);
             ViewData["Status"] = new SelectList(StaticDropDowns.GetLeaveStatus(), "Value", "Text", leaveRequest.Status);
@@ -99,25 +122,33 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
+                var jsonContent = new StringContent(JsonConvert.SerializeObject(leaveRequest), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync("LeaveRequests", jsonContent);
+                if (response.IsSuccessStatusCode)
                 {
-                    _context.Update(leaveRequest);
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    _context.LeaveRequest.Update(leaveRequest);
                     await _context.SaveChangesAsync();
+                    TempData["Success"] = "Edited!";
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LeaveRequestExists(leaveRequest.Id))
                 {
-                    if (!LeaveRequestExists(leaveRequest.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+                else
+                {
+                    throw;
+                }
             }
             ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Name", leaveRequest.EmployeeId);
             ViewData["LeaveType"] = new SelectList(StaticDropDowns.GetLeaveType(), "Value", "Text", leaveRequest.LeaveType);
@@ -133,13 +164,9 @@ namespace LeaveManagement.Web.Controllers
                 return NotFound();
             }
 
-            var leaveRequest = await _context.LeaveRequest
-                .Include(l => l.Employee)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (leaveRequest == null)
-            {
-                return NotFound();
-            }
+            var response = await _httpClient.GetAsync($"LeaveRequests/{id}");
+            var responseString = await response.Content.ReadAsStringAsync();
+            var leaveRequest = JsonConvert.DeserializeObject<LeaveRequest>(responseString);
 
             return View(leaveRequest);
         }
@@ -149,13 +176,19 @@ namespace LeaveManagement.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var leaveRequest = await _context.LeaveRequest.FindAsync(id);
-            if (leaveRequest != null)
+            var response = await _httpClient.DeleteAsync($"LeaveRequests/{id}");
+            if (response.IsSuccessStatusCode)
             {
+                TempData["Success"] = "Removed!";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                var leaveRequest = await _context.LeaveRequest.FindAsync(id);
                 _context.LeaveRequest.Remove(leaveRequest);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
