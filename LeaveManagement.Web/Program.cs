@@ -1,14 +1,14 @@
 using LeaveManagement.Infrustructure.Data;
+using LeaveManagement.Infrustructure.Services;
 using LeaveManagement.Infrustructure.UserModel;
 using LeaveManagement.Web.Data.Roles;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -17,7 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
    options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-///Custom Identity start
+//Custom Identity 
 builder.Services.Configure<IdentityOptions>(options =>
     options.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier);
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -25,19 +25,17 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddDefaultUI()
             .AddDefaultTokenProviders();
 
+//registering email service
+builder.Services.AddTransient<IEmailSender, EmailService>();
+builder.Services.AddScoped<EmailService>();
+//Adding httpClient for rest api calling
 builder.Services.AddHttpClient();
 
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseSqlServer(connectionString));
-//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<ApplicationDbContext>();
-//builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
 // Configuring User Roles
+// creating default user and role
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;

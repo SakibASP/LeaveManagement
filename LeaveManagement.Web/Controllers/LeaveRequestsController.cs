@@ -7,6 +7,8 @@ using LeaveManagement.Utils;
 using Newtonsoft.Json;
 using System.Text;
 using System.Net.Http.Headers;
+using LeaveManagement.Infrustructure.Services;
+using System.Security.Claims;
 
 namespace LeaveManagement.Web.Controllers
 {
@@ -14,10 +16,10 @@ namespace LeaveManagement.Web.Controllers
     public class LeaveRequestsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         private readonly HttpClient _httpClient;
+        private readonly EmailService _emailService;
 
-        public LeaveRequestsController(ApplicationDbContext context, IHttpClientFactory httpClientFactory)
+        public LeaveRequestsController(ApplicationDbContext context, IHttpClientFactory httpClientFactory,EmailService emailService)
         {
             _context = context;
             _httpClient = httpClientFactory.CreateClient();
@@ -25,6 +27,7 @@ namespace LeaveManagement.Web.Controllers
             _httpClient.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json")
                 );
+            _emailService = emailService;
         }
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
@@ -131,6 +134,20 @@ namespace LeaveManagement.Web.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     TempData["Success"] = "Updated!";
+                    try
+                    {
+                        string? emp = _context.Employee.Find(leaveRequest.EmployeeId)?.Name;
+                        const string subject = "Leave Request Update!";
+                        string htmlMessage = $@"<h5>Hello {User.Identity?.Name},</h5>
+                            <p>Request updated of employe {emp}.</p>
+                            <p>Current status <strong>{leaveRequest.Status}</strong>.</p>";
+                        string? sendTo = User.FindFirst(ClaimTypes.Email)?.Value;
+                        if(!string.IsNullOrEmpty(sendTo))
+                        {
+                            await _emailService.SendEmailAsync(sendTo, subject, htmlMessage);
+                        }
+                    }
+                    catch { }
                     return RedirectToAction(nameof(Index));
                 }
                 else
