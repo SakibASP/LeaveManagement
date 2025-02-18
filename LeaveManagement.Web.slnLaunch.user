@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "LeaveManagement.Web\\LeaveManagement.Web.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "LeaveManagement.WebApi\\LeaveManagement.WebApi.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]
