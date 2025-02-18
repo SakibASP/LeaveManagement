@@ -101,7 +101,7 @@ namespace LeaveManagement.Web.Areas.Identity.Pages.Account
 
             [DataType(DataType.Date)]
             [Display(Name ="Date Of Birth")]
-            public string DateOfBirth { get; set; }
+            public DateTime DateOfBirth { get; set; }
         }
 
 
@@ -118,7 +118,7 @@ namespace LeaveManagement.Web.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
+                user.DateOfBirth = Input.DateOfBirth;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
