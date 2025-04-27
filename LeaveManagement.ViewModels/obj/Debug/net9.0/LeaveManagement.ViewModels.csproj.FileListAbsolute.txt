@@ -10,15 +10,3 @@ D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debu
 D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\refint\LeaveManagement.ViewModels.dll
 D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.pdb
 D:\Sakib Git\LeaveManagement\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\ref\LeaveManagement.ViewModels.dll
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\bin\Debug\net9.0\LeaveManagement.ViewModels.deps.json
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\bin\Debug\net9.0\LeaveManagement.ViewModels.dll
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\bin\Debug\net9.0\LeaveManagement.ViewModels.pdb
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.AssemblyInfoInputs.cache
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.AssemblyInfo.cs
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.csproj.CoreCompileInputs.cache
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.sourcelink.json
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.dll
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\refint\LeaveManagement.ViewModels.dll
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\LeaveManagement.ViewModels.pdb
-C:\Git Repositories\LeaveManagement\LeaveManagement.ViewModels\obj\Debug\net9.0\ref\LeaveManagement.ViewModels.dll
