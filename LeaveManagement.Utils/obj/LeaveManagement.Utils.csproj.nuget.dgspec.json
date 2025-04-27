@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj": {}
+    "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj": {}
   },
   "projects": {
-    "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj": {
+    "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj",
+        "projectUniqueName": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj",
         "projectName": "LeaveManagement.Models",
-        "projectPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj",
-        "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-        "outputPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\obj\\",
+        "projectPath": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj",
+        "packagesPath": "C:\\Users\\Sakib\\.nuget\\packages\\",
+        "outputPath": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Programmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sakib\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -66,24 +65,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj": {
+    "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj",
+        "projectUniqueName": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj",
         "projectName": "LeaveManagement.Utils",
-        "projectPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj",
-        "packagesPath": "C:\\Users\\Programmer\\.nuget\\packages\\",
-        "outputPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Utils\\obj\\",
+        "projectPath": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Utils\\LeaveManagement.Utils.csproj",
+        "packagesPath": "C:\\Users\\Sakib\\.nuget\\packages\\",
+        "outputPath": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Utils\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Programmer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sakib\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -92,15 +91,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj": {
-                "projectPath": "D:\\Sakib Git\\LeaveManagement\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj"
+              "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj": {
+                "projectPath": "C:\\Git Repositories\\LeaveManagement\\LeaveManagement.Models\\LeaveManagement.Models.csproj"
               }
             }
           }
@@ -115,7 +113,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -142,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
