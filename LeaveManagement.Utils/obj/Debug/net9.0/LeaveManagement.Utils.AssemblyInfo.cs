@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LeaveManagement.Utils")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a66d632d55be8418afd329d96215f9291162ee9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17b2160cf0c4361b9321c58666dfac19ef82ac95")]
 [assembly: System.Reflection.AssemblyProductAttribute("LeaveManagement.Utils")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LeaveManagement.Utils")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
