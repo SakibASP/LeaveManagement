@@ -1,4 +1,4 @@
-﻿using LeaveManagement.Models;
+﻿using LeaveManagement.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,7 +8,7 @@ using System.Text;
 namespace LeaveManagement.WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthController(IConfiguration config) : ControllerBase
     {
         private readonly string _key = config["Jwt:Key"];

@@ -1,4 +1,4 @@
-﻿namespace LeaveManagement.Models
+﻿namespace LeaveManagement.ViewModels
 {
     public class UserLogin
     {

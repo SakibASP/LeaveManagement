@@ -9,6 +9,7 @@ using System.Text;
 using System.Net.Http.Headers;
 using LeaveManagement.Infrustructure.Services;
 using System.Security.Claims;
+using LeaveManagement.Web.Helper;
 
 namespace LeaveManagement.Web.Controllers
 {
@@ -32,6 +33,8 @@ namespace LeaveManagement.Web.Controllers
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
         {
+            string jwtToken = await JWTTokenHelper.GetToken(_httpClient, "admin", "123");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
             var response = await _httpClient.GetAsync("LeaveRequests");
             var responseString = await response.Content.ReadAsStringAsync();
             var model = JsonConvert.DeserializeObject<IList<LeaveRequest>>(responseString);
