@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using LeaveManagement.Models;
 using LeaveManagement.Infrustructure.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LeaveManagement.WebApi.Controllers
 {
@@ -13,8 +14,10 @@ namespace LeaveManagement.WebApi.Controllers
 
         // GET: api/LeaveRequests
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<LeaveRequest>>> GetLeaveRequests()
         {
+            var test = User.Identity?.Name;
             return Ok(await _context.LeaveRequest.ToListAsync());
         }
 

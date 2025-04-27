@@ -11,3 +11,4 @@
 /LeaveManagement.Web/obj
 /LeaveManagement.WebApi/bin/Debug/net9.0
 /LeaveManagement.WebApi/obj
+/LeaveManagement.Utils/obj/Debug/net9.0/LeaveManagement.Utils.AssemblyInfo.cs
