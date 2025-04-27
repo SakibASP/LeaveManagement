@@ -12,3 +12,11 @@
 /LeaveManagement.WebApi/bin/Debug/net9.0
 /LeaveManagement.WebApi/obj
 /LeaveManagement.Utils/obj/Debug/net9.0/LeaveManagement.Utils.AssemblyInfo.cs
+/LeaveManagement.Infrustructure/obj/Debug/net9.0/ref
+/LeaveManagement.Infrustructure/obj/Debug/net9.0/refint
+/LeaveManagement.Utils/bin/Debug/net9.0
+/LeaveManagement.Utils/obj/Debug/net9.0/ref
+/LeaveManagement.Utils/obj/Debug/net9.0/refint
+/LeaveManagement.ViewModels/bin/Debug/net9.0
+/LeaveManagement.ViewModels/obj/Debug/net9.0/ref
+/LeaveManagement.ViewModels/obj/Debug/net9.0/refint
